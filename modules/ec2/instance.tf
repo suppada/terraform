@@ -5,7 +5,7 @@ resource "aws_instance" "ec2_instance" {
   ami                    = var.ami_id
   key_name               = var.key_name
   vpc_security_group_ids = [aws_security_group.terraform.id]
-  iam_instance_profile   = aws_iam_instance_profile.web.name
+  iam_instance_profile   = aws_iam_instance_profile.tf_web.name
   subnet_id              = var.subnet_id
   user_data              = file(var.user_data)
   ebs_block_device {
