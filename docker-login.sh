@@ -1,7 +1,7 @@
 #!/bin/sh -xv
 
-user="welcom18"
-passwd="Paparao@1"
+user=""
+passwd=""
 tag="v1"
 repo_name=welcome
 
