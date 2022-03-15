@@ -1,5 +1,11 @@
-.DS_Store
+### OSX ###
+*.DS_Store
 .git
-.terraform.lock.hcl
-terraform.tfstate
+
+### Terraform ###
+# Terraform - https://terraform.io/
 .terraform
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
+.terraform.lock.hcl

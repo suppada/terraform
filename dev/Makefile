@@ -5,7 +5,8 @@ all: help
 # Add the following 'help' target to your Makefile
 # And add help text after each target name starting with '\#\#'
 
-VARS = terraform.tfvars
+#VARS = terraform.tfvars
+# -var-file="$(VARS)" \
 
 get:
 	@echo "Updating modules"
@@ -21,7 +22,6 @@ plan:
 		-lock=true \
 		-input=false \
 		-refresh=true \
-		-var-file="$(VARS)" \
 		-out terraform.tfplan
 
 fmt:
@@ -36,7 +36,6 @@ apply:
 		-lock=true \
 		-input=false \
 		-refresh=true \
-		-var-file="$(VARS)" \
 		--auto-approve
 
 destroy:
@@ -45,7 +44,6 @@ destroy:
 		-lock=true \
 		-input=false \
 		-refresh=true \
-		-var-file="$(VARS)" \
 		--auto-approve
 
 confirm:
