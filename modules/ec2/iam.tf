@@ -26,8 +26,8 @@ EOF
   }
 }
 
-resource "aws_iam_instance_profile" "tf_web" {
-  name = "web"
+resource "aws_iam_instance_profile" "devops_web" {
+  name = "tf_web"
   role = aws_iam_role.devops.name
 }
 
