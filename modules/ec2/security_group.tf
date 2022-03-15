@@ -1,7 +1,7 @@
 #--------- Security Groups -------------#
 
 resource "aws_security_group" "devops_terraform" {
-  name        = "devops"
+  name        = "tf_devops"
   description = "used for access to the dev instance"
 
   #SSH
