@@ -5,7 +5,7 @@ yum install java -y
 yum install java-11-openjdk-devel -y
 yum install git wget zip unzip nano -y
 yum install docker -y
-yum install maven jq ansible -y
+yum install maven jq ansible make -y
 mkdir /var/jenkins/
 chmod 777 -R /var/jenkins/
 

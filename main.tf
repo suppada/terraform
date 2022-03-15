@@ -101,8 +101,8 @@ resource "aws_security_group" "instance" {
 }
 
 #-------------IAM-------------#
-resource "aws_iam_role" "ssm_role" {
-  name = "ssm_role"
+resource "aws_iam_role" "test" {
+  name = "test"
 
   assume_role_policy = <<EOF
 {
@@ -130,22 +130,22 @@ EOF
 
 resource "aws_iam_instance_profile" "test_profile" {
   name = "test_profile"
-  role = aws_iam_role.ssm_role.name
+  role = aws_iam_role.test.name
 }
 
 resource "aws_iam_role_policy_attachment" "test_attach1" {
-  role       = aws_iam_role.ssm_role.name
+  role       = aws_iam_role.test.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
 }
 
 resource "aws_iam_role_policy_attachment" "test_attach2" {
-  role       = aws_iam_role.ssm_role.name
+  role       = aws_iam_role.test.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
 resource "aws_iam_role_policy" "test_policy" {
   name = "test_policy"
-  role = aws_iam_role.ssm_role.id
+  role = aws_iam_role.test.id
 
   policy = <<EOF
 {
@@ -156,6 +156,11 @@ resource "aws_iam_role_policy" "test_policy" {
         "s3:*"
       ],
       "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": "*",
       "Resource": "*"
     }
   ]
