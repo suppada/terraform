@@ -7,7 +7,6 @@ resource "aws_instance" "ec2_instance" {
   vpc_security_group_ids = [aws_security_group.sg.id]
   iam_instance_profile   = aws_iam_instance_profile.profile.name
   subnet_id              = var.subnet_id
-  #user_data              = file(var.user_data)
   ebs_block_device {
     device_name = "/dev/sda1"
     volume_size = 50
