@@ -5,6 +5,6 @@ output "tags" {
   }
 }
 output "instances" {
-  value       = "${aws_instance.ec2_instance.*.private_ip}"
+  value       = aws_instance.ec2_instance.*.private_ip
   description = "PrivateIP address details"
 }
