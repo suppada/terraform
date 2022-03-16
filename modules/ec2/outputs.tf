@@ -4,3 +4,7 @@ output "tags" {
     "Environment" = var.environment_tag
   }
 }
+output "instances" {
+  value       = "${aws_instance.ec2_instance.*.private_ip}"
+  description = "PrivateIP address details"
+}
