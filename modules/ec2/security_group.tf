@@ -1,7 +1,7 @@
 #--------- Security Groups -------------#
 
-resource "aws_security_group" "devops_terraform" {
-  name        = "tf_devops"
+resource "aws_security_group" "sg" {
+  name        = var.security_group_name
   description = "used for access to the dev instance"
 
   #SSH
@@ -46,7 +46,7 @@ resource "aws_security_group" "devops_terraform" {
   tags = {
     Name        = var.instance_name
     Environment = var.environment_tag
-    Owner       = "Suresh"
-    Project     = "Test"
+    Owner       = var.owner
+    Project     = var.project
   }
 }

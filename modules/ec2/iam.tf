@@ -1,6 +1,6 @@
 #-------------IAM-------------#
-resource "aws_iam_role" "devops" {
-  name = "devops"
+resource "aws_iam_role" "role" {
+  name = var.role_name
 
   assume_role_policy = <<EOF
 {
@@ -20,30 +20,30 @@ EOF
 
   tags = {
     Name        = var.instance_name
-    Environment = "devops"
-    Owner       = "Suresh"
-    Project     = "devops"
+    Environment = var.environment_tag
+    Owner       = var.owner
+    Project     = var.project
   }
 }
 
-resource "aws_iam_instance_profile" "devops_web" {
-  name = "tf_web"
-  role = aws_iam_role.devops.name
+resource "aws_iam_instance_profile" "profile" {
+  name = var.instance_profile
+  role = aws_iam_role.role.name
 }
 
-resource "aws_iam_role_policy_attachment" "devops_attach1" {
-  role       = aws_iam_role.devops.name
+resource "aws_iam_role_policy_attachment" "attach1" {
+  role       = aws_iam_role.role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
 }
 
-resource "aws_iam_role_policy_attachment" "devops_attach2" {
-  role       = aws_iam_role.devops.name
+resource "aws_iam_role_policy_attachment" "attach2" {
+  role       = aws_iam_role.role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
 }
 
-resource "aws_iam_role_policy" "tf_policy" {
-  name = "tf_policy"
-  role = aws_iam_role.devops.id
+resource "aws_iam_role_policy" "policy" {
+  name = var.role_policy
+  role = aws_iam_role.role.id
 
   policy = <<EOF
 {
