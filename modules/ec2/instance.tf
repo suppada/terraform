@@ -1,3 +1,7 @@
+provider "aws" {
+  region = var.aws_region
+}
+
 // EC2 Instance Resource for Module
 resource "aws_instance" "ec2_instance" {
   count                  = var.ec2_count
