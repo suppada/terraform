@@ -4,7 +4,7 @@ variable "instance_type" {}
 variable "key_name" {}
 variable "instance_name" {}
 variable "aws_region" {}
-#variable "user_data" {}
+variable "user_data" {}
 variable "subnet_id" {}
 variable "environment_tag" {}
 variable "role_name" {}
