@@ -20,7 +20,7 @@ resource "aws_instance" "ec2_instance" {
   subnet_id                   = var.subnet_id
   ebs_block_device {
     device_name = "/dev/sda1"
-    volume_size = "var.volume_size"
+    volume_size = var.volume_size
   }
 
   tags = {
