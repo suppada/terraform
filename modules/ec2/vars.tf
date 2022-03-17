@@ -13,3 +13,4 @@ variable "role_policy" {}
 variable "security_group_name" {}
 variable "owner" {}
 variable "project" {}
+variable "volume_size" {}
